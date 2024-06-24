@@ -27,10 +27,7 @@ class SVG {
         }
         
         // Complete SVG string with text and shape
-        const svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-                            ${this.textElement}
-                            ${shapeElement}
-                          </svg>`;
+        const svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.textElement}${shapeElement}</svg>`;
 
         // Write SVG string to file
         fs.writeFile(fileName, svgString, (err) => {
@@ -43,12 +40,7 @@ class SVG {
     }
 
     render() {
-        return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        ${this.shapeElement === 'circle' ? `<circle cx="100" cy="100" r="80" fill="${this.colorElement}" />` : ''}
-        ${this.shapeElement === 'square' ? `<rect x="73" y="40" width="160" height="160" fill="${this.colorElement}" />` : ''}
-        ${this.shapeElement === 'triangle' ? `<polygon points="150,18 244,182 56,182" fill="${this.colorElement}" />` : ''}
-        ${this.textElement}
-                </svg>`;
+        return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shapeElement === 'circle' ? `<circle cx="100" cy="100" r="80" fill="${this.colorElement}" />` : ''}${this.shapeElement === 'square' ? `<rect x="73" y="40" width="160" height="160" fill="${this.colorElement}" />` : ''}${this.shapeElement === 'triangle' ? `<polygon points="150,18 244,182 56,182" fill="${this.colorElement}" />` : ''}${this.textElement}</svg>`;
     }
 }
 
